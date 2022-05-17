@@ -7,6 +7,7 @@ import java.util.Objects;
 @Entity
 public class NotificationTask {
 
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,7 +17,7 @@ public class NotificationTask {
     private LocalDateTime sentDate;
     private String notificationMessage;
 
-    public enum NotificationStatus{
+    public enum NotificationStatus {
         PROCESS,
         SENT,
     }
@@ -78,6 +79,11 @@ public class NotificationTask {
 
     public void setStatus(NotificationStatus status) {
         this.status = status;
+    }
+
+    public void updateStatus() {
+        this.status = NotificationStatus.SENT;
+        this.sentDate = LocalDateTime.now();
     }
 
     @Override

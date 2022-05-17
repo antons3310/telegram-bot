@@ -6,8 +6,8 @@ import pro.sky.telegrambot.model.NotificationTask;
 
 import java.util.Collection;
 
-public interface NotificationRepository extends JpaRepository<NotificationTask,Long> {
+public interface NotificationRepository extends JpaRepository<NotificationTask, Long> {
 
-    @Query(value = "SELECT * FROM notification_task where notification_date <= CURRENT_TIMESTAMP and status = 'PROCESS'",nativeQuery = true)
+    @Query(value = "SELECT * FROM notification_task where notification_date <= CURRENT_TIMESTAMP and status = 0", nativeQuery = true)
     Collection<NotificationTask> getProcessNotification();
 }
